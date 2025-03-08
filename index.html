@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenar Números</title>
+</head>
+<body>
+    <h2>Resultados</h2>
+    <div id="resultado"></div>
+
+    <script>
+        function obtenerNumeros() {
+            let num1 = parseFloat(prompt("Ingresa el primer número:"));
+            let num2 = parseFloat(prompt("Ingresa el segundo número:"));
+            let num3 = parseFloat(prompt("Ingresa el tercer número:"));
+
+            // Validación de números
+            if (isNaN(num1) || isNaN(num2) || isNaN(num3)) {
+                alert("Por favor, ingresa solo números válidos.");
+                return;
+            }
+
+            let numeros = [num1, num2, num3];
+
+            // Ordenar de mayor a menor
+            let descendiendo = [...numeros].sort((a, b) => b - a);
+
+            // Ordenar de menor a mayor
+            let ascendente = [...numeros].sort((a, b) => a - b);
+
+            // Mostrar en consola
+            console.log("De mayor a menor:", descendiendo.join(", "));
+            console.log("De menor a mayor:", ascendente.join(", "));
+
+            // Mostrar en el DOM
+            let resultadoDiv = document.getElementById("resultado");
+            resultadoDiv.innerHTML = `
+                <p><strong>De mayor a menor:</strong> ${descendiendo.join(", ")}</p>
+                <p><strong>De menor a mayor:</strong> ${ascendente.join(", ")}</p>
+            `;
+
+            // Igualdad de números
+            if (num1 === num2 && num2 === num3) {
+                console.log("Los tres números son iguales.");
+                resultadoDiv.innerHTML += "<p><strong>Todos los números son iguales.</strong></p>";
+            }
+        }
+
+        obtenerNumeros();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

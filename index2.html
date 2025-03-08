@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparación de números</title>
+</head>
+<body>
+    <h2>Resultados</h2>
+    <div id="resultados"></div>
+
+    <script>
+       function ingresarNumeros() {
+    let num1 = parseFloat(prompt("Ingrese el primer número:"));
+    let num2 = parseFloat(prompt("Ingrese el segundo número:"));
+    let num3 = parseFloat(prompt("Ingrese el tercer número:"));
+        return;
+    }
+
+    let numeros = [num1, num2, num3];
+    console.log("Números válidos:", numeros);
+
+            // Ordenar de mayor a menor
+            let descendente = [...numeros].sort((a, b) => b - a);
+
+            // Ordenar de menor a mayor
+            let ascendente = [...numeros].sort((a, b) => a - b);
+
+            // Mostrar en consola
+            console.log("De mayor a menor:", descendente.join(", "));
+            console.log("De menor a mayor:", ascendente.join(", "));
+
+            // Mostrar en el DOM
+            let resultadoDiv = document.getElementById("resultados");
+            resultadoDiv.innerHTML = `
+                <p><strong>De mayor a menor:</strong> ${descendente.join(", ")}</p>
+                <p><strong>De menor a mayor:</strong> ${ascendente.join(", ")}</p>
+            `;
+
+            // Verificar si los números son iguales
+            if (num1 === num2 && num2 === num3) {
+                console.log("Los tres números son iguales.");
+                resultadoDiv.innerHTML += "<p><strong>Todos los números son iguales.</strong></p>";
+            }
+        
+
+        obtenerNumeros();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
